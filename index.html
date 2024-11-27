@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Link to FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="data:image/jpeg;base64,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" type="image/x-icon">
+</head>
+<body>
+    <div class="player">
+        <div class="wrapper">
+            <div class="details">
+                <div class="now-playing">PLAYING x OF y</div>
+                <div class="track-art"></div>
+                <div class="track-name">Track Name</div>
+                <div class="track-artist">Track Artist</div>
+            </div>
+
+            <div class="slider_container">
+                <input type="range" min="1" max="100" value="0" class="seek_slider">
+                <div class="current-time">00:00</div>
+                <div class="total-duration">00:00</div>
+            </div>
+
+            <div class="slider_container">
+                <i class="fa fa-volume-down"></i>
+                <input type="range" min="1" max="100" value="50" class="volume_slider">
+                <i class="fa fa-volume-up"></i>
+            </div>
+
+            <div class="buttons">
+                <div class="random-track">
+                    <i class="fas fa-random fa-2x" title="random"></i>
+                </div>
+                <div class="prev-track">
+                    <i class="fa fa-step-backward fa-2x"></i>
+                </div>
+                <div class="playpause-track">
+                    <i class="fa fa-play-circle fa-5x"></i>
+                </div>
+                <div class="next-track">
+                    <i class="fa fa-step-forward fa-2x"></i>
+                </div>
+                <div class="repeat-track">
+                    <i class="fa fa-repeat fa-2x" title="repeat"></i>
+                </div>
+            </div>
+
+            <div id="wave">
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       let now_playing = document.querySelector('.now-playing');
+       let track_art = document.querySelector('.track-art');
+       let track_name = document.querySelector('.track-name');
+       let track_artist = document.querySelector('.track-artist');
+
+       let playpause_btn = document.querySelector('.playpause-track');
+       let next_btn = document.querySelector('.next-track');
+       let prev_btn = document.querySelector('.prev-track');
+
+       let seek_slider = document.querySelector('.seek_slider');
+       let volume_slider = document.querySelector('.volume_slider');
+       let curr_time = document.querySelector('.current-time');
+       let total_duration = document.querySelector('.total-duration');
+       let wave = document.getElementById('wave');
+       let randomIcon = document.querySelector('.fa-random');
+       let repeatIcon = document.querySelector('.fa-repeat');
+       let curr_track = document.createElement('audio');
+
+       let track_index = 0;
+       let isPlaying = false;
+       let isRandom = false;
+       let isRepeat = false;
+       let updateTimer;
+
+       const music_list = [
+           {
+               img: './MV5BMDI2N2M5ZjQtNDM2Yi00NjRlLThjOWEtZTI0NjJkOTdkN2ZlXkEyXkFqcGc@._V1_.jpg',
+               name: 'OG',
+               artist: 'Thaman S',
+               music: './[iSongs.info] 01 - Hungry Cheetah OG Glimpse.mp3'
+           },
+           {
+               img: './major-movie-1656582925.jpg',
+               name: 'Hrudayama Song',
+               artist: 'Sid Sriram',
+               music: './Hrudayama.mp3'
+           },
+           {
+               img: './MV5BZGRjODJkMDgtZjJiZS00YmQ1LTljNzYtMDZiMWI5ZmM3NWFhXkEyXkFqcGc@._V1_QL75_UX140_.jpg',
+               name: 'Raa Macha Macha',
+               artist: 'Thaman S',
+               music: './[iSongs.info] 02 - Raa Macha Macha.mp3'
+           },
+           {
+               img: './Hi-Nanna-Ost-S-Side-A-Telugu-2024-20240113161119-500x500.jpg',
+               name:'Hi-Nanna',
+               artist: 'Karthik',
+               music: './[iSongs.info] 09 - Adigaa.mp3'
+           }
+       ];
+
+       loadTrack(track_index);
+
+       function loadTrack(track_index) {
+           clearInterval(updateTimer);
+           reset();
+
+           curr_track.src = music_list[track_index].music;
+           curr_track.load();
+
+           track_art.style.backgroundImage = "url(" + music_list[track_index].img + ")";
+           track_name.textContent = music_list[track_index].name;
+           track_artist.textContent = music_list[track_index].artist;
+           now_playing.textContent = "Playing music " + (track_index + 1) + " of " + music_list.length;
+
+           updateTimer = setInterval(setUpdate, 1000);
+
+           curr_track.addEventListener('ended', nextTrack);
+           random_bg_color();
+       }
+
+       function random_bg_color() {
+           let hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e'];
+
+           function populate(a) {
+               for(let i = 0; i < 6; i++) {
+                   let x = Math.round(Math.random() * 14);
+                   let y = hex[x];
+                   a += y;
+               }
+               return a;
+           }
+
+           let Color1 = "#" + populate("");
+           let Color2 = "#" + populate("");
+           let angle = 'to right';
+
+           let gradient = 'linear-gradient(' + angle + ',' + Color1 + ', ' + Color2 + ")";
+           document.body.style.background = gradient;
+       }
+
+       function reset() {
+           curr_time.textContent = "00:00";
+           total_duration.textContent = "00:00";
+           seek_slider.value = 0;
+       }
+
+       function randomTrack() {
+           isRandom = !isRandom;
+           randomIcon.classList.toggle('randomActive');
+       }
+
+       function repeatTrack() {
+           isRepeat = !isRepeat;
+           repeatIcon.classList.toggle('repeatActive');
+       }
+
+       function playpauseTrack() {
+           isPlaying ? pauseTrack() : playTrack();
+       }
+
+       function playTrack() {
+           curr_track.play();
+           isPlaying = true;
+           track_art.classList.add('rotate');
+           wave.classList.add('loader');
+           playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+       }
+
+       function pauseTrack() {
+           curr_track.pause();
+           isPlaying = false;
+           track_art.classList.remove('rotate');
+           wave.classList.remove('loader');
+           playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+       }
+
+       function nextTrack() {
+           if (isRandom) {
+               track_index = Math.floor(Math.random() * music_list.length);
+           } else if (track_index < music_list.length - 1) {
+               track_index += 1;
+           } else {
+               track_index = 0;
+           }
+           loadTrack(track_index);
+           playTrack();
+       }
+
+       function prevTrack() {
+           if (track_index > 0) {
+               track_index -= 1;
+           } else {
+               track_index = music_list.length - 1;
+           }
+           loadTrack(track_index);
+           playTrack();
+       }
+
+       function seekTo() {
+           let seekto = curr_track.duration * (seek_slider.value / 100);
+           curr_track.currentTime = seekto;
+       }
+
+       function setVolume() {
+           curr_track.volume = volume_slider.value / 100;
+       }
+
+       function setUpdate() {
+           let seekPosition = 0;
+           if (!isNaN(curr_track.duration)) {
+               seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+               seek_slider.value = seekPosition;
+
+               let currentMinutes = Math.floor(curr_track.currentTime / 60);
+               let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+               let durationMinutes = Math.floor(curr_track.duration / 60);
+               let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+
+               if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+               if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+               if (currentMinutes < 10) { currentMinutes = "0" + currentMinutes; }
+               if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+
+               curr_time.textContent = currentMinutes + ":" + currentSeconds;
+               total_duration.textContent = durationMinutes + ":" + durationSeconds;
+           }
+       }
+
+       playpause_btn.addEventListener('click', playpauseTrack);
+       next_btn.addEventListener('click', nextTrack);
+       prev_btn.addEventListener('click', prevTrack);
+       seek_slider.addEventListener('input', seekTo);
+       volume_slider.addEventListener('input', setVolume);
+
+       // Add event listeners for shuffle and repeat buttons
+       document.querySelector('.random-track').addEventListener('click', randomTrack);
+       document.querySelector('.repeat-track').addEventListener('click', repeatTrack);
+
+    </script>
+</body>
+</html>
